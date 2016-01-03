@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in user
       #セッションパラメータのremember_meが1なら覚える、0なら忘れる
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      redirect_back_or user
     else
       # エラー表示
       flash.now[:danger] = 'Invalid email/password combination' # 本当は正しくない
